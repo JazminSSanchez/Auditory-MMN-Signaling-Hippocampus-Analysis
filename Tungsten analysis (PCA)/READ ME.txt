@@ -1,0 +1,6 @@
+This functions are based on work done by Adam Hockley for  https://physoc.onlinelibrary.wiley.com/doi/full/10.1113/JP284452
+
+## 1) ReadDataFuntions.m
+It uses the bst created by the principal component sorting.
+Generating a normalized index table which will later be concatenated with the one generated for the multichannel recordings.
+The one used is the NormalizedIndexesTable9C.mat

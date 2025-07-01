@@ -1,0 +1,17 @@
+Custom functions to get mat or excel files to concatenate them with the multichannel analysis
+Made by Jazmin Sanchez 2024
+
+## AveragePSTH.mlx
+It creates three mat files, one for each condition (DEV, STD and CTR) with the information of the histograms bin normalized.
+% Change the sheet number depeding on what you want to plot as well as the name of the matfile to be saved.
+
+## AverageSpikeCountPerTrial_AnalysisWindow.mlx
+It create plots and the corresponding mat files with the information of how many spikes there where per trials for each condition.
+
+## CSIspikerateCSI.mlx
+It creates CSI values using bootstraping and it generates a mat and excel file with the real CSI, the bootstraping created one and a range.
+
+## Fisrt10STD.mlx
+It generates a spikes per trial Matrix that is later used to create figure 12 A.
+
+

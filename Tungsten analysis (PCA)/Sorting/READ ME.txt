@@ -1,0 +1,36 @@
+# TDT single unit analysis pipeline
+v1.0
+A selection of tools in MATLAB for analysing tungsten single neuron data recorded using TDT systems. 
+
+The analysis pipeline involves preparing the TDT tank data for PCA sorting, and then re-associating sorted spike data with sitmuli presented during recording. The output is in a proprietary 'bst' format, which is similar to a TDT tank and has custom functions for easy further analysis.
+
+Code was written by Adam Hockley and slightly modified by Jazmin Sanchez Sanchez
+## 1) JazminSorting.m Combines multiple blocks recorded on the same neuron
+Script for PCA & k-means spike sorking on single channel TDT data
+Then converts to bst format, and some example plotting
+
+Requires TDTbin2mat and matlab SDK in matlab path, and beautify function.
+TDTBin2Mat from the [TDT Matlab SDK](https://www.tdt.com/docs/sdk/offline-data-analysis/offline-data-matlab/).
+
+## 2) Using custom functions to easily access spike data from bst.
+The following two functions provide a simple method for querying spike times from the bst formatted data.
+
+### build_sb_jazmin.m 
+This code allow users to construct SUPERBLOCK (sb_cell: cell array with only one field), which is the first step for spike analysis. 
+Superblocks cell is then fed into bbst in the next step.
+
+### BST_TS.m
+Outputs the stimulus trial numbers corresponding to requested stimulus parameters. e.g.  Get the F1 and F2 used:
+
+`SelectedTrials = BST_TS(bst,'type','ODD-DES-DEV');`
+
+### BST_GS.m
+Outputs the spike timings that occurred within the queried trials. e.g. to find spike times for neuron 1 during the trials from above:
+
+`SpikeTimes = 1000 * BST_GS(bst,SelectedTrials,'SW');`
+
+### bbst_jazmin.m
+Load data for one channel - just getting epoks not spikes
+
+### BST_AddType_jazmin.m
+This function is used to find oddballs & deviants etc in a bst. It will add the info to the bst epoch allowing the trials to be searchable.
