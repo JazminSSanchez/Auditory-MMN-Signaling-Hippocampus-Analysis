@@ -1,2 +1,2 @@
 This folders include all the code use to analyse and view all the figures for the paper Neuronal Mismatch Responses to Auditory Stimuli in the Dorsal Hippocampus of Anesthetized Rats, Jazmin S. Sanchez, David Perez-Gonzales & Manuel S. Malmierca.
-(Except for the spike sorting for multichannel recordings, which was the same as the one used for Adam Hockleys, et al., 2025 prefrontal paper: https://www.cell.com/cell-reports/fulltext/S2211-1247(25)00309-2?uuid=uuid%3Ad3324574-617b-4071-86f2-ed3b8ac7a17b)
+(Except for the spike sorting for multichannel recordings, which was the same as the one used for Adam Hockley, et al., 2025 prefrontal paper: https://www.cell.com/cell-reports/fulltext/S2211-1247(25)00309-2?uuid=uuid%3Ad3324574-617b-4071-86f2-ed3b8ac7a17b)
