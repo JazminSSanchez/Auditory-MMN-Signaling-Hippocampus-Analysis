@@ -1,0 +1,30 @@
+Author: Jazmin Sanchez 2024-2025
+
+Using the matrices, structures and tables generated with # TDT single unit analysis pipeline steps (ADAM H.) & custom functions (Jazmin Sanchez)
+
+Functions used to generate the figures in "Neuronal Mismatch Responses to Auditory Stimuli in the Dorsal
+Hippocampus of Anesthetized Rats" by Jazmín S. Sánchez, David Pérez-González and Manuel S. Malmierca*
+
+
+## 1) DotRasterMultichannel.m & DotRasterMultichannelPeriodic.m
+Generates dotraster plots of a specified unit from the multichannel data shown in figure 3.
+
+## 2) CA1vsDG_DEV_STD_comparison.mlx
+A live script to create all the gran average graphs shown in Figure 4
+
+Carefull!! Anyone using it must be carefull since it is necessary to comment out lines or sections depending on what you want to plot. Improvements to avoid errors for new users are needed. 
+
+## 3) GranAverage_graph_HIP_R_P.mlx & Bar_graph_HIP_R_P.m
+Used to create figure 5
+
+## 5) Index_CA1_DG_median.mlx
+Used to generate all graphs and stats for figure 6
+
+## 6) LFP_Plotting.m
+Creates all the graphs and stats used for figures 7 - 10.
+
+## 7) SpikesPerTrialMultiChannel.mlx
+Creates all the figures and stats for figure 11
+
+## 8) SpikesPerTrialMultiChannel.mlx
+Creates the HP graphs for figure 12 A
