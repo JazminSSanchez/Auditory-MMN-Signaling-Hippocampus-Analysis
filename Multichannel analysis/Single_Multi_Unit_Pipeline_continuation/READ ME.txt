@@ -1,0 +1,39 @@
+1) Follow the # TDT single unit analysis pipeline steps. (ADAM H.) Modified by Jazmin Sanchez 2024- June 2025
+A selection of tools in MATLAB for analysing multi-channel single neuron data recorded using TDT systems. 
+
+The analysis pipeline involves preparing the TDT tank data for sorting, and then re-associating sorted spike data with sitmuli presented during recording. The output is in a proprietary 'bst' format, which is similar to a TDT tank and has custom functions for easy further analysis.
+
+
+## 1) AddTypesJazmin.m & AddTypesJazmin_MUA.m
+Adds the types (e.g. ODD-DEV-ASC) to the bst stimuli table. Allows easy searching of spikes based on stimulus type in later analysis.
+## Should be checked for accurate type labeling by all users!
+
+## 2) CreateSpikeTable_Jazmin.m & CreateSpikeTable_Jazmin_MUA.m
+Combines data from each bst and saves into one big table of spike data correspaonding to different stimuli used. Also produces PSTH plots for each neuron.
+
+The restulting data table should contain all the data you need, and be small enough to quickly load, analyse and plot any way you want.
+
+## 3) ReadFunctionsMultichannel.m & ReadFunctionsMultichannelMUA.m (MUA ending stands for multiunits as recognized by the spikesorting)
+
+	1.1) SignificanceWindow.m
+	1.2) CSI_bootstrapping.m
+		1.2.1) CSI_bootstrap2.m
+
+	*** From which we get the following .mat files:
+		- spiketable_Aud_Sig.mat
+		This table contains the path, unit, the spikes corresponding to each condition, location, and if the unit is auditory and significant (1 or 0).
+		- NormalizedIndexesTable.mat
+		Contains normalized indexes and STD, DEV and CTR values
+		- SignificanceWindowTable.mat
+		Contains if DEV or STD conditions have a significat response (2 standard deviations above basal activity) and the normalized values for each condition and basal activity. 
+
+
+## 4) HistogramsSpikesTableMUA_Generator & HistogramsSpikesTableMUA_Generator_MUA
+
+You get back the following matrix:
+
+	- HistogramsSpikesTable.mat
+
+## 5) Generate_CA1_DG_spiketables_IndexTables.mlx
+It generates a mat file with all the unit and multiunit information from multichannel recordings
+It also generates tables in mat format with the information from the tungsten channels as well as the multichannel recordings (Used later in "Index_CA1_DG_median.mlx")

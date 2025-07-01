@@ -1,0 +1,143 @@
+function [CSI CSI_P] = CSI_bootstrapping(path)
+load(path);
+
+x1 = 180; %Start of window of analysis
+x2 = 650; %End of window of analysis
+
+for i = 1:size(spiketable,1)
+    for k = 1:40
+        n = 0;
+        for j = 1:size(spiketable.oddData{i,1}.("ODD-ASC-STD"){k,1},1)
+            if size(spiketable.oddData{i,1}.("ODD-ASC-STD"){k,1},1) == 0 
+                n = 0;
+            elseif spiketable.oddData{i,1}.("ODD-ASC-STD"){k,1}(j,1) >= x1 && spiketable.oddData{i,1}.("ODD-ASC-STD"){k,1}(j,1) <= x2
+                n = n + 1;
+            end
+        end
+        SpKFinalSTD1s(k,i) = n; % Creates a matrix with the spikes in the window of analysis. Each colum is a neuron and each row is a trial
+    end
+end
+
+for i = 1:size(spiketable,1)
+    for k = 1:40
+        n = 0;
+        for j = 1:size(spiketable.oddData{i,1}.("ODD-DES-STD"){k,1},1)
+            if size(spiketable.oddData{i,1}.("ODD-DES-STD"){k,1},1) == 0 
+                n = 0;
+            elseif spiketable.oddData{i,1}.("ODD-DES-STD"){k,1}(j,1) >= x1 && spiketable.oddData{i,1}.("ODD-DES-STD"){k,1}(j,1) <= x2
+                n = n + 1;
+            end
+        end
+        SpKFinalSTD2s(k,i) = n; % Creates a matrix with the spikes in the window of analysis. Each colum is a neuron and each row is a trial
+    end
+end
+
+for i = 1:size(spiketable,1)
+    for k = 1:40
+        n = 0;
+        for j = 1:size(spiketable.oddData{i,1}.("ODD-ASC-STD-P"){k,1},1)
+            if size(spiketable.oddData{i,1}.("ODD-ASC-STD-P"){k,1},1) == 0 
+                n = 0;
+            elseif spiketable.oddData{i,1}.("ODD-ASC-STD-P"){k,1}(j,1) >= x1 && spiketable.oddData{i,1}.("ODD-ASC-STD-P"){k,1}(j,1) <= x2
+                n = n + 1;
+            end
+        end
+        SpKFinalSTD1sP(k,i) = n; % Creates a matrix with the spikes in the window of analysis. Each colum is a neuron and each row is a trial
+    end
+end
+
+for i = 1:size(spiketable,1)
+    for k = 1:40
+        n = 0;
+        for j = 1:size(spiketable.oddData{i,1}.("ODD-DES-STD-P"){k,1},1)
+            if size(spiketable.oddData{i,1}.("ODD-DES-STD-P"){k,1},1) == 0 
+                n = 0;
+            elseif spiketable.oddData{i,1}.("ODD-DES-STD-P"){k,1}(j,1) >= x1 && spiketable.oddData{i,1}.("ODD-DES-STD-P"){k,1}(j,1) <= x2
+                n = n + 1;
+            end
+        end
+        SpKFinalSTD2sP(k,i) = n; % Creates a matrix with the spikes in the window of analysis. Each colum is a neuron and each row is a trial
+    end
+end
+
+for i = 1:size(spiketable,1)
+    for k = 1:40
+        n = 0;
+        for j = 1:size(spiketable.oddData{i,1}.("ODD-ASC-DEV"){k,1},1)
+            if size(spiketable.oddData{i,1}.("ODD-ASC-DEV"){k,1},1) == 0 
+                n = 0;
+            elseif spiketable.oddData{i,1}.("ODD-ASC-DEV"){k,1}(j,1) >= x1 && spiketable.oddData{i,1}.("ODD-ASC-DEV"){k,1}(j,1) <= x2
+                n = n + 1;
+            end
+        end
+        SpKFinalDEV1s(k,i) = n; % Creates a matrix with the spikes in the window of analysis. Each colum is a neuron and each row is a trial
+    end
+end
+
+for i = 1:size(spiketable,1)
+    for k = 1:40
+        n = 0;
+        for j = 1:size(spiketable.oddData{i,1}.("ODD-DES-DEV"){k,1},1)
+            if size(spiketable.oddData{i,1}.("ODD-DES-DEV"){k,1},1) == 0 
+                n = 0;
+            elseif spiketable.oddData{i,1}.("ODD-DES-DEV"){k,1}(j,1) >= x1 && spiketable.oddData{i,1}.("ODD-DES-DEV"){k,1}(j,1) <= x2
+                n = n + 1;
+            end
+        end
+        SpKFinalDEV2s(k,i) = n; % Creates a matrix with the spikes in the window of analysis. Each colum is a neuron and each row is a trial
+    end
+end
+
+for i = 1:size(spiketable,1)
+    for k = 1:40
+        n = 0;
+        for j = 1:size(spiketable.oddData{i,1}.("ODD-ASC-DEV-P"){k,1},1)
+            if size(spiketable.oddData{i,1}.("ODD-ASC-DEV-P"){k,1},1) == 0 
+                n = 0;
+            elseif spiketable.oddData{i,1}.("ODD-ASC-DEV-P"){k,1}(j,1) >= x1 && spiketable.oddData{i,1}.("ODD-ASC-DEV-P"){k,1}(j,1) <= x2
+                n = n + 1;
+            end
+        end
+        SpKFinalDEV1sP(k,i) = n; % Creates a matrix with the spikes in the window of analysis. Each colum is a neuron and each row is a trial
+    end
+end
+
+for i = 1:size(spiketable,1)
+    for k = 1:40
+        n = 0;
+        for j = 1:size(spiketable.oddData{i,1}.("ODD-DES-DEV-P"){k,1},1)
+            if size(spiketable.oddData{i,1}.("ODD-DES-DEV-P"){k,1},1) == 0 
+                n = 0;
+            elseif spiketable.oddData{i,1}.("ODD-DES-DEV-P"){k,1}(j,1) >= x1 && spiketable.oddData{i,1}.("ODD-DES-DEV-P"){k,1}(j,1) <= x2
+                n = n + 1;
+            end
+        end
+        SpKFinalDEV2sP(k,i) = n; % Creates a matrix with the spikes in the window of analysis. Each colum is a neuron and each row is a trial
+    end
+end
+
+
+for j = 1:size(spiketable,1)
+    Dev = [SpKFinalDEV1s(:,j) SpKFinalDEV2s(:,j)]; % Create a vector with the spikes generated by F1 and F2 when pressented as a deviant
+    Std = [SpKFinalSTD1s(:,j) SpKFinalSTD2s(:,j)]; % Create a vector with the spikes generated by F1 and F2 when pressented as a standard
+    DevP = [SpKFinalDEV1sP(:,j) SpKFinalDEV2sP(:,j)]; % Create a vector with the spikes generated by F1 and F2 when pressented as a deviant
+    StdP = [SpKFinalSTD1sP(:,j) SpKFinalSTD2sP(:,j)]; % Create a vector with the spikes generated by F1 and F2 when pressented as a standard
+    CSI(j) = CSI_bootstrap2( Dev, Std, 10000, 1); % CSI and bootstraping 
+    CSI_P(j) = CSI_bootstrap2( DevP, StdP, 10000, 1); % CSI and bootstraping 
+end
+CSI_T = struct2table(CSI); % Save it in a matrix
+CSI_T_P = struct2table(CSI_P); % Save it in a matrix
+
+
+% asigne variables to each name to save on an excel 
+
+Block = spiketable.Block;
+Unit = spiketable.Unit;
+CSI = CSI_T.csi;
+Rango = CSI_T.ci;
+CSI_P = CSI_T_P.csi;
+Rango_P = CSI_T_P.ci;
+
+CSI = table(Block, Unit, CSI, Rango);
+CSI_P = table(Block, Unit, CSI_P, Rango_P);
+end
